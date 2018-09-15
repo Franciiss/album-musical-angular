@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-body">
+      <h2 class="card-title">Listagem de Artistas</h2>
+      <div class="my-2 text-left">
+         <button class="btn btn-primary my-3" type="button" [routerLink]="['/artistas/form']">Novo Artista</button>
+      </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Nacionalidade</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let artista of artistas">
+            <td>{{ artista.nome }}</td>
+            <td>{{ artista.nacionalidade }}</td>
+            <td>
+              <button type="button" name="editar" [routerLink]="['/artistas/form', artista.artistaId]" class="btn btn-outline-primary btn-sm">editar</button>
+              <button type="button" name="excluir" (click)="excluir(artista.artistaId)" class="btn btn-outline-primary btn-sm">excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
